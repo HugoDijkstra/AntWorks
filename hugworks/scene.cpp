@@ -1,4 +1,4 @@
-#include<hugworks/scene.h>
+#include <hugworks/scene.h>
 
 Scene::Scene()
 {
@@ -6,7 +6,7 @@ Scene::Scene()
 }
 Scene::~Scene()
 {
-  entities.clear();
+        entities.clear();
 }
 void Scene::addEntity(Entity* entity)
 {
@@ -24,4 +24,21 @@ void Scene::addEntity(Entity* entity)
 
         }
         entities.push_back(entity);
+}
+
+void Scene::removeEntity(Entity* entity)
+{
+        std::vector<Entity*>::iterator it = entities.begin();
+        while(it != entities.end())
+        {
+                if((*it)->getId() == entity->getId())
+                {
+                        it = entities.erase(it);
+                        return;
+                }
+                else
+                {
+                        it++;
+                }
+        }
 }

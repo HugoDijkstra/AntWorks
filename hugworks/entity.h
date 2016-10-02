@@ -4,6 +4,7 @@
 #include <hugworks/vector2.h>
 #include <hugworks/input.h>
 #include <SDL.h>
+#include <SDL_image.h>
 #include <vector>
 
 class Entity

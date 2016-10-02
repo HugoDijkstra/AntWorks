@@ -16,7 +16,7 @@ Entity::Entity(int w, int h)
 }
 Entity::~Entity()
 {
-
+        delete rect;
 }
 
 bool Entity::check_collision( SDL_Rect* A, SDL_Rect* B ) {

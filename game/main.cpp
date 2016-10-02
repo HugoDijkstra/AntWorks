@@ -53,20 +53,12 @@ int main()
                         for(unsigned int j = 0; j < 30; j++)
                         {
                                 scene->layers[l]->addEntity(new Grass((30 * i), (30 * j)));
-                                //renderer->renderScene(scene);
                         }
                 }
         scene->addEntity(entity);
         while(!input->mustquit)
         {
                 input->update();
-                for(unsigned int k = 0; k < 284; k++)
-                {
-                        if(input->getKeyDown(k))
-                        {
-                                std::cout << k << std::endl;
-                        }
-                }
                 if(input->getKeyDown(91))
                 {
                         if(currentLayer <= 8)
@@ -79,7 +71,6 @@ int main()
                 {
                         if(currentLayer >= 1)
                         {
-
                                 currentLayer--;
                                 std::cout << currentLayer << std::endl;
                         }
@@ -87,16 +78,14 @@ int main()
                 renderer->renderScene(scene, currentLayer);
                 for(unsigned int i = 0; i < scene->layers[currentLayer]->entities.size(); i++)
                 {
-                        if(scene->entities[i] != entity)
+                        if(Entity::check_collision(scene->layers[currentLayer]->entities[i]->rect, entity->rect))
                         {
-                                if(Entity::check_collision(scene->layers[currentLayer]->entities[i]->rect, entity->rect))
-                                {
-                                        entity->collidingWith.push_back(scene->layers[currentLayer]->entities[i]);
-                                        scene->layers[currentLayer]->entities[i]->collidingWith.push_back(entity);
-                                }
+                                entity->collidingWith.push_back(scene->layers[currentLayer]->entities[i]);
+                                scene->layers[currentLayer]->entities[i]->collidingWith.push_back(entity);
                         }
                 }
         }
+        scene->layers.clear();
         SDL_Quit();
         delete entity;
         delete input;

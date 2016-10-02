@@ -25,6 +25,7 @@ public:
         std::vector<Entity*> entities;
         std::vector<Layer*> layers;
         void addEntity(Entity* entity);
+        void removeEntity(Entity* entity);
 private:
 };
 

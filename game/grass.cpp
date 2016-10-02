@@ -10,7 +10,7 @@ Grass::Grass(int x, int y)
         b = 0;
         g = 255;
         a = 255;
-        digTime = 0.5f;
+        digTime = 0.7f;
         walkAble = false;
 }
 Grass::~Grass()

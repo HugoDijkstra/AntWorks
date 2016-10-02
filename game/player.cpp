@@ -63,24 +63,24 @@ void Player::update(float dt)
         {
                 if(canWalkUp)
                 {
-                        pos.y -= 20 * dt;
+                        pos.y -= 100 * dt;
                 }
 
         }
         else //Get S key
         if(input->getKey(115) && canWalkDown)
         {
-                pos.y += 20 * dt;
+                pos.y += 100 * dt;
         }
 //Get A key
         if(input->getKey(97) && canWalkLeft)
         {
-                pos.x -= 20 * dt;
+                pos.x -= 100 * dt;
         }
         else //Get D key
         if(input->getKey(100) && canWalkRight)
         {
-                pos.x += 20 * dt;
+                pos.x += 100 * dt;
         }
         rect->y = pos.y;
         rect->x = pos.x;
